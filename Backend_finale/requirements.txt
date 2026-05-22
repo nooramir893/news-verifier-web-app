@@ -23,3 +23,6 @@ python-multipart==0.0.10
 
 # Environment
 python-dotenv==1.0.1
+
+pandas==2.2.2
+joblib==1.4.2
