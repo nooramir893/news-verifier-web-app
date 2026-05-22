@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset & Base ── */
+:root {
+  --teal: #0F766E;
+  --cyan: #06B6D4;
+  --navy: #020617;
+  --neon: #22C55E;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #020617;
+  color: #E5E7EB;
+  overflow-x: hidden;
+  font-family: var(--font-dm), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #0F766E; border-radius: 4px; }
+
+/* ── Grid background ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(15,118,110,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,118,110,0.05) 1px, transparent 1px);
+  background-size: 55px 55px;
+}
+
+/* ── Glass morphism ── */
+.glass {
+  background: rgba(10, 22, 40, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Gradient text ── */
+.grad {
+  background: linear-gradient(135deg, #0F766E 0%, #06B6D4 50%, #22C55E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.grad-cyan {
+  background: linear-gradient(135deg, #06B6D4, #22D3EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glow effects ── */
+.glow-t { box-shadow: 0 0 25px rgba(15,118,110,0.4), 0 0 50px rgba(15,118,110,0.12); }
+.glow-g { box-shadow: 0 0 16px rgba(34,197,94,0.45); }
+
+/* ── Neon borders ── */
+.nb   { border: 1px solid rgba(15,118,110,0.3); }
+.nb-c { border: 1px solid rgba(6,182,212,0.3); }
+.nb-g { border: 1px solid rgba(34,197,94,0.3); }
+.nb-r { border: 1px solid rgba(239,68,68,0.3); }
+
+/* ── Primary button ── */
+.btn {
+  background: linear-gradient(135deg, #0F766E, #06B6D4);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #06B6D4, #22C55E);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn:hover::after  { opacity: 1; }
+.btn:hover         { transform: translateY(-1px); }
+.btn:active        { transform: translateY(0px); }
+.btn > *           { position: relative; z-index: 1; }
+
+/* ── Card hover ── */
+.card {
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 45px rgba(15,118,110,0.2);
+}
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes pulseRing {
+  0%   { transform: scale(0.85); opacity: 1; }
+  100% { transform: scale(2.1);  opacity: 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.float      { animation: float 6s ease-in-out infinite; }
+.pulse-ring { animation: pulseRing 2.4s ease-out infinite; }
+.fade-up    { animation: fadeUp 0.6s ease-out both; }
+.spin-slow  { animation: spin 18s linear infinite; }
+.spin-rev   { animation: spin 12s linear infinite reverse; }
+.blink      { animation: blink 1s step-end infinite; }
+
+/* ── Badge styles ── */
+.badge-fake { 
+  font-size: 0.7rem; font-family: var(--font-jb), monospace;
+  padding: 3px 10px; border-radius: 6px; font-weight: 700;
+  color: #f87171; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25);
+}
+.badge-real { 
+  font-size: 0.7rem; font-family: var(--font-jb), monospace;
+  padding: 3px 10px; border-radius: 6px; font-weight: 700;
+  color: #22C55E; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+}
+
+/* ── Terminal block ── */
+.terminal {
+  font-family: var(--font-jb), monospace;
+  background: rgba(10, 22, 40, 0.95);
+  border: 1px solid rgba(15,118,110,0.25);
+  border-radius: 12px;
+}
