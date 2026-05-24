@@ -90,14 +90,14 @@ export default function SignupPage() {
           <p className="text-gray-400 font-body text-sm">Join News Verifier and start detecting fake news</p>
         </div>
 
-        <div className="glass nb rounded-2xl p-8">
+        {/* <div className="glass nb rounded-2xl p-8">
           <div className="grid grid-cols-2 gap-3 mb-6">
             {[{I:Github,l:'GitHub'},{I:Chrome,l:'Google'}].map(({I,l})=>(
               <button key={l} className="flex items-center justify-center gap-2 py-2.5 rounded-xl nb glass text-gray-300 hover:text-white hover:border-primary/45 transition-all text-sm font-body">
                 <I size={14}/>{l}
               </button>
             ))}
-          </div>
+          </div> */}
           <div className="flex items-center gap-3 mb-6">
             <div className="flex-1 h-px bg-primary/12"/>
             <span className="text-gray-500 text-xs font-mono">or sign up with email</span>
@@ -110,7 +110,7 @@ export default function SignupPage() {
               <label className="block text-xs font-mono text-gray-400 mb-1.5 uppercase tracking-widest">Full Name</label>
               <div className="relative">
                 <User size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500"/>
-                <input type="text" value={form.name} onChange={e=>set('name',e.target.value)} placeholder="Muhammad Ali" className={inputCls('name')}/>
+                <input type="text" value={form.name} onChange={e=>set('name',e.target.value)} placeholder="Enter your full name" className={inputCls('name')}/>
               </div>
               {errors.name && <p className="text-red-400 text-xs font-mono mt-1">{errors.name}</p>}
             </div>
